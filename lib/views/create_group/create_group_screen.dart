@@ -177,25 +177,23 @@ class _CreateGroupScreenState extends State<CreateGroupScreen> {
                           onTap: () async {
                             if (_formKey.currentState!.validate()) {
                               try {
-                                String groupName =
-                                groupNameController.text.trim();
+                                String groupName = groupNameController.text.trim();
                                 showAppLoading(context);
                                 await model.createNewGroup(groupName);
                                 NavigationService().pop();
                                 model.reset();
                                 AppToaster.showToast(
                                   context: context,
-                                  msg: ConstantStrings
-                                      .appString.createNewGroupSuccessfully,
+                                  msg: ConstantStrings.appString.createNewGroupSuccessfully,
                                   type: AppToasterType.success,
                                 );
                                 NavigationService().pop();
                               } catch (e) {
+                                NavigationService().pop();
                                 if (e is ImageNullException) {
                                   AppToaster.showToast(
                                     context: context,
-                                    msg: ConstantStrings
-                                        .appString.warningPickGroupImage,
+                                    msg: ConstantStrings.appString.warningPickGroupImage,
                                     type: AppToasterType.failed,
                                   );
                                 } else {
