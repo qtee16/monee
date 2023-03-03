@@ -1,0 +1,15 @@
+const String ROUTER_SPLASH = "/splash_screen";
+const String ROUTER_SIGN_IN = '/sign_in';
+const String ROUTER_SIGN_UP = '/sign_up';
+const String ROUTER_MAIN = '/main';
+const String ROUTER_CREATE_GROUP = '/create-new-group';
+const String ROUTER_GROUP = '/group';
+const String ROUTER_REQUESTS_LIST = '/requests-list';
+const String ROUTER_MANAGE_MEMBER = '/manage-member';
+const String ROUTER_EDIT_GROUP_INFO = '/edit-group-info';
+const String ROUTER_EDIT_USER_INFO = '/edit-user-info';
+const String ROUTER_CREATE_EXPENSE = '/create-new-expense';
+const String ROUTER_EXPENSE_DETAIL = '/expense-detail';
+const String ROUTER_UPDATE_EXPENSE = '/update-expense';
+const String ROUTER_CHANGE_PASSWORD = '/change-password';
+const String ROUTER_VERIFY_EMAIL = '/verify-email';

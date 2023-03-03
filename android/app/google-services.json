@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "908885985556",
+    "project_id": "spending-app-2d8a1",
+    "storage_bucket": "spending-app-2d8a1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:908885985556:android:c1a00ef3785aa2240eda01",
+        "android_client_info": {
+          "package_name": "com.qtee.spending_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "908885985556-n45nips2fhd8dmghhp1ds304cqguk2k5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCT2LResFuRZ89SFNar-UZZPDCQwgM9z_o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "908885985556-n45nips2fhd8dmghhp1ds304cqguk2k5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
