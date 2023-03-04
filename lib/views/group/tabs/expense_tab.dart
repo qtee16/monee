@@ -119,7 +119,7 @@ class _ExpenseTabState extends State<ExpenseTab> {
                       value: selectYear,
                       onChanged: (dynamic value) {
                         setState(() {
-                          selectMonth = value;
+                          selectYear = value;
                         });
                       },
                     ),

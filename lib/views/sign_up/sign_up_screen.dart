@@ -168,6 +168,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               type: AppToasterType.success,
                             );
                           } else {
+                            NavigationService().pop();
                             AppToaster.showToast(
                               context: context,
                               msg: ConstantStrings.appString.errorOccur,
@@ -175,6 +176,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             );
                           }
                         } catch (e) {
+                          NavigationService().pop();
                           if (e is WeakPasswordAuthException) {
                             AppToaster.showToast(
                               context: context,
