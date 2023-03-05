@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:spending_app/constants.dart';
-import 'package:spending_app/repositories/global_repo.dart';
 import 'package:spending_app/view_models/group_view_model.dart';
 import 'package:spending_app/view_models/member_view_model.dart';
 import 'package:spending_app/view_models/personal_statistic_view_model.dart';
@@ -33,8 +32,6 @@ class _HomeTabState extends State<HomeTab> {
         Provider.of<MemberViewModel>(context, listen: false).currentUser!;
     Provider.of<PersonalStatisticViewModel>(context, listen: false)
         .getSpentMoneyInCurrentMonth(member.groupsIdList, member.id);
-    // Provider.of<PersonalStatisticViewModel>(context, listen: false)
-    //     .getRatioOfExpense(member.groupsIdList, member.id);
 
     super.initState();
   }
@@ -53,7 +50,6 @@ class _HomeTabState extends State<HomeTab> {
           if (!mounted) return;
           Provider.of<MemberViewModel>(context, listen: false)
               .setCurrentUser(member);
-          await GlobalRepo.instance.getData("203642c0-b75a-11ed-9ddc-f3da292b45df");
           print(member.groupsIdList);
           await Provider.of<PersonalStatisticViewModel>(context, listen: false)
               .getSpentMoneyInCurrentMonth(member.groupsIdList, member.id);

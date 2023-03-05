@@ -70,31 +70,4 @@ class PersonalStatisticViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  // Future<void> getRatioOfExpense(List<dynamic> groupsIdList, String currentUserId) async {
-  //   Map<TypeBill, double> typeTmp = {};
-  //   Map<String, double> groupTmp = {};
-  //
-  //   List<Group> groups = await globalRepo.getAllGroupsByIdList(groupsIdList);
-  //
-  //   DateTime dateTime = DateTime.now();
-  //   for(var group in groups) {
-  //     List<Expense> expenses = await globalRepo.getAllExpensesInMonth(group.id, formatDateCollection(dateTime));
-  //     for (var expense in expenses) {
-  //       if (expense.membersIdList.contains(currentUserId)) {
-  //         var type = expense.type;
-  //         var money = expense.price/expense.membersIdList.length;
-  //         if (typeTmp[type] == null) {
-  //           typeTmp[type] = 0;
-  //         }
-  //         typeTmp[type] = typeTmp[type]! + money;
-  //       }
-  //     }
-  //   }
-  //   typeTmp.forEach((key, value) {
-  //     typeTmp[key] = value/spentMoney!*100;
-  //   });
-  //   print(typeTmp);
-  //   typeRatio = typeTmp;
-  //   notifyListeners();
-  // }
 }
