@@ -19,15 +19,16 @@ class ExpenseRepo {
         .snapshots();
   }
 
-  Future<List<Expense>> getAllExpensesInMonth(
-      String groupId, String date) async {
+  Future<List<Expense>> getAllExpensesInMonth(String groupId,
+      String date) async {
     var query = await firebaseFirestore
         .collection(ConstantStrings.dbString.expenseGroupsCollection)
         .doc(groupId)
         .collection(date)
         .get();
 
-    List<Expense> expenses = query.docs.map((e) => Expense.fromJson(e.data())).toList();
+    List<Expense> expenses = query.docs.map((e) => Expense.fromJson(e.data()))
+        .toList();
     return expenses;
   }
 
@@ -77,7 +78,7 @@ class ExpenseRepo {
     for (var expense in expenses) {
       String ownerId = expense.ownerId;
       List<dynamic> membersId = expense.membersIdList;
-      double moneyPerMem = expense.price/membersId.length;
+      double moneyPerMem = expense.price / membersId.length;
       print(moneyPerMem);
       for (var memberId in membersId) {
         if (statistic[memberId] == null) {
@@ -86,20 +87,24 @@ class ExpenseRepo {
             'debt': 0,
           };
         }
-          double spent = statistic[memberId]!['spent']!;
-          double debt = statistic[memberId]!['debt']!;
+        double spent = statistic[memberId]!['spent']!;
+        double debt = statistic[memberId]!['debt']!;
 
-          spent += moneyPerMem;
-          statistic[memberId]!['spent'] = spent;
+        spent += moneyPerMem;
+        statistic[memberId]!['spent'] = spent;
 
-          if (memberId == ownerId) {
-            debt += expense.price - moneyPerMem;
-          } else {
-            debt -= moneyPerMem;
-          }
-          statistic[memberId]!['debt'] = debt;
-
+        debt -= moneyPerMem;
+        statistic[memberId]!['debt'] = debt;
       }
+
+      if (statistic[ownerId] == null) {
+        statistic[ownerId] = {
+          'spent': 0,
+          'debt': 0,
+        };
+      }
+      double debt = statistic[ownerId]!['debt']!;
+      statistic[ownerId]!['debt'] = debt + expense.price;
     }
 
     print(statistic);
