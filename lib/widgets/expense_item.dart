@@ -101,8 +101,8 @@ class ExpenseItem extends StatelessWidget {
                         width: (realWidth - 68) / 3,
                         child: Row(
                           children: [
-                            SizedBox(
-                              width: (realWidth - 68) / 3 - 20,
+                            Container(
+                              constraints: BoxConstraints(maxWidth: (realWidth - 68) / 3 - 24,),
                               child: Text(
                                 type,
                                 style: const TextStyle(
@@ -114,7 +114,7 @@ class ExpenseItem extends StatelessWidget {
                               ),
                             ),
                             const SizedBox(
-                              width: 4,
+                              width: 8,
                             ),
                             Container(
                               width: 16,

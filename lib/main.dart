@@ -12,10 +12,13 @@ import 'package:spending_app/view_models/group_view_model.dart';
 import 'package:spending_app/view_models/member_info_view_model.dart';
 import 'package:spending_app/view_models/member_view_model.dart';
 import 'package:spending_app/view_models/personal_statistic_view_model.dart';
+import 'firebase_options.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
 

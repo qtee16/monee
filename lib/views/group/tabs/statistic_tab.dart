@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:provider/provider.dart';
 import 'package:shimmer/shimmer.dart';
 
@@ -8,19 +7,11 @@ import 'package:spending_app/constants.dart';
 import 'package:spending_app/models/expense.dart';
 import 'package:spending_app/models/group.dart';
 import 'package:spending_app/models/member.dart';
-import 'package:spending_app/routes/navigation_services.dart';
-import 'package:spending_app/routes/routes.dart';
-import 'package:spending_app/utils/enums/type_bill_enum.dart';
 import 'package:spending_app/view_models/expense_view_model.dart';
 import 'package:spending_app/view_models/member_view_model.dart';
-import 'package:spending_app/widgets/app_toaster.dart';
-import 'package:spending_app/widgets/custom_animated_fab.dart';
-import 'package:spending_app/widgets/custom_loading.dart';
-import 'package:spending_app/widgets/expense_item.dart';
 import 'package:spending_app/widgets/statistic_item.dart';
 
 import '../../../utils/utils.dart';
-import '../../../widgets/confirm_dialog.dart';
 import '../../../widgets/custom_dropdown.dart';
 
 class StatisticTab extends StatefulWidget {
@@ -37,8 +28,6 @@ class _StatisticTabState extends State<StatisticTab> {
   int selectYear = DateTime.now().year;
 
   late String dropdownValue;
-
-  bool _showFab = true;
 
   @override
   void initState() {
@@ -119,7 +108,7 @@ class _StatisticTabState extends State<StatisticTab> {
                     value: selectYear,
                     onChanged: (dynamic value) {
                       setState(() {
-                        selectMonth = value;
+                        selectYear = value;
                       });
                     },
                   ),
@@ -264,104 +253,6 @@ class _StatisticTabState extends State<StatisticTab> {
           )
         ],
       ),
-    );
-  }
-
-  _showBottomOption(Expense expense, bool isOwnerItem) {
-    showModalBottomSheet(
-      context: context,
-      builder: (subContext) {
-        return Wrap(
-          children: [
-            InkWell(
-              onTap: () {
-                NavigationService().pop();
-                NavigationService()
-                    .pushNamed(ROUTER_EXPENSE_DETAIL, arguments: {
-                  'expense': expense,
-                });
-              },
-              child: ListTile(
-                leading: const Padding(
-                  padding: EdgeInsets.only(left: 2.0),
-                  child: Icon(
-                    Icons.info,
-                    size: 24,
-                  ),
-                ),
-                title: Text(ConstantStrings.appString.expenseDetail),
-              ),
-            ),
-            isOwnerItem
-                ? Column(
-                    children: [
-                      InkWell(
-                        onTap: () {
-                          NavigationService().pop();
-                          NavigationService()
-                              .pushNamed(ROUTER_UPDATE_EXPENSE, arguments: {
-                            'group': widget.group,
-                            'expense': expense,
-                          });
-                        },
-                        child: ListTile(
-                          leading: const Padding(
-                            padding: EdgeInsets.only(left: 2.0),
-                            child: Icon(
-                              Icons.edit,
-                              size: 24,
-                            ),
-                          ),
-                          title: Text(ConstantStrings.appString.editExpense),
-                        ),
-                      ),
-                      InkWell(
-                        onTap: () {
-                          NavigationService().pop();
-                          showConfirmDialog(
-                            context: context,
-                            title: ConstantStrings.appString.deleteExpense,
-                            content:
-                                ConstantStrings.appString.confirmDeleteExpense,
-                            onConfirm: () async {
-                              showAppLoading(context);
-                              try {
-                                await Provider.of<ExpenseViewModel>(context,
-                                        listen: false)
-                                    .deleteExpense(expense);
-                                AppToaster.showToast(
-                                  context: context,
-                                  msg: ConstantStrings.appString.deleteSuccess,
-                                  type: AppToasterType.success,
-                                );
-                              } catch (e) {
-                                AppToaster.showToast(
-                                  context: context,
-                                  msg: ConstantStrings.appString.errorOccur,
-                                  type: AppToasterType.failed,
-                                );
-                              }
-                              NavigationService().pop();
-                            },
-                          );
-                        },
-                        child: ListTile(
-                          leading: const Padding(
-                            padding: EdgeInsets.only(left: 2.0),
-                            child: Icon(
-                              Icons.delete,
-                              size: 24,
-                            ),
-                          ),
-                          title: Text(ConstantStrings.appString.deleteExpense),
-                        ),
-                      ),
-                    ],
-                  )
-                : const SizedBox(),
-          ],
-        );
-      },
     );
   }
 }

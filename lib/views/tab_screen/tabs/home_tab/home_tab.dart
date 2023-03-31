@@ -50,7 +50,6 @@ class _HomeTabState extends State<HomeTab> {
           if (!mounted) return;
           Provider.of<MemberViewModel>(context, listen: false)
               .setCurrentUser(member);
-          print(member.groupsIdList);
           await Provider.of<PersonalStatisticViewModel>(context, listen: false)
               .getSpentMoneyInCurrentMonth(member.groupsIdList, member.id);
         }();

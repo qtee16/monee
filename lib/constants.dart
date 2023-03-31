@@ -19,6 +19,7 @@ class AppColors {
 
   static const purpleStartLinearColor = Color(0xFFC69DFF);
   static const purpleEndLinearColor = Color(0xFF4F76FF);
+  static const greenColor = Color.fromARGB(255, 28, 151, 32);
 }
 
 class ConstantStrings {

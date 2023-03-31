@@ -79,7 +79,6 @@ class ExpenseRepo {
       String ownerId = expense.ownerId;
       List<dynamic> membersId = expense.membersIdList;
       double moneyPerMem = expense.price / membersId.length;
-      print(moneyPerMem);
       for (var memberId in membersId) {
         if (statistic[memberId] == null) {
           statistic[memberId] = {
@@ -106,8 +105,6 @@ class ExpenseRepo {
       double debt = statistic[ownerId]!['debt']!;
       statistic[ownerId]!['debt'] = debt + expense.price;
     }
-
-    print(statistic);
 
     List<Map<String, dynamic>> result = [];
 

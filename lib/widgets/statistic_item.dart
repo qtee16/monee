@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:spending_app/widgets/cached_image_widget.dart';
 import 'package:spending_app/widgets/member_avatar.dart';
 
 import '../constants.dart';
@@ -71,7 +70,7 @@ class StatisticItem extends StatelessWidget {
                       formatter.format(spent),
                       style: const TextStyle(
                           fontSize: 14,
-                          color: Colors.red,
+                          color: Colors.white,
                           fontWeight: FontWeight.bold
                       ),
                       textAlign: TextAlign.end,
@@ -84,10 +83,10 @@ class StatisticItem extends StatelessWidget {
                   children: [
                     Text(
                       formatter.format(debt),
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
-                        color: AppColors.whiteColor,
+                        color: debt > 0 ? AppColors.greenColor : Colors.red,
                       ),
                       textAlign: TextAlign.end,
                       overflow: TextOverflow.ellipsis,

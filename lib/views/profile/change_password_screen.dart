@@ -154,7 +154,6 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                                   type: AppToasterType.success,
                                 );
                               } catch (e) {
-                                print(e);
                                 NavigationService().pop();
                                 AppToaster.showToast(
                                   context: context,
