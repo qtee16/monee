@@ -71,7 +71,7 @@ class _ExpenseTabState extends State<ExpenseTab> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     const Text(
                       'Tháng',
@@ -100,7 +100,7 @@ class _ExpenseTabState extends State<ExpenseTab> {
                   width: 40,
                 ),
                 Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     const Text(
                       'Năm',

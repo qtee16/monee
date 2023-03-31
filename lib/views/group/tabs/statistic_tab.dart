@@ -60,7 +60,7 @@ class _StatisticTabState extends State<StatisticTab> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   const Text(
                     'Tháng',
@@ -89,7 +89,7 @@ class _StatisticTabState extends State<StatisticTab> {
                 width: 40,
               ),
               Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   const Text(
                     'Năm',
