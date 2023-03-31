@@ -12,9 +12,11 @@ class PieChartCustom extends StatelessWidget {
   Widget build(BuildContext context) {
     return SfCircularChart(
         legend: Legend(
-            isVisible: true,
-            overflowMode: LegendItemOverflowMode.wrap,
-            position: LegendPosition.bottom),
+          toggleSeriesVisibility: false,
+          isVisible: true,
+          overflowMode: LegendItemOverflowMode.wrap,
+          position: LegendPosition.bottom,
+        ),
         tooltipBehavior: TooltipBehavior(enable: true,),
         series: <CircularSeries>[
           // Render pie chart
